@@ -1,0 +1,301 @@
+<html>
+<header>
+  <style>
+    .wrap {
+      width: 300px;
+      height: 300px;
+      position: relative;
+    }
+
+    .wrap div {
+      position: absolute;
+    }
+
+    .hair,
+    .hair-mid {
+      left: 50%;
+    }
+
+    .hair-mid,
+    .hair-side {
+      background: #FFFA75;
+      z-index: 3;
+    }
+
+    .hair {
+      background: #FFFA75;
+      border: solid 1px #BBA055;
+      z-index: 1;
+      border-radius: 65% 65% 60% 60%;
+      width: 166px;
+      height: 150px;
+      left: 50%;
+      margin-left: -83px;
+      bottom: 65px;
+    }
+
+    .hair-mid {
+      width: 100px;
+      height: 80px;
+      top: 90px;
+      margin-left: -50px;
+      border-radius: 40%;
+      border-bottom: solid 1px #E7AE52;
+      box-shadow: inset 0 -3px 3px 0 #F4C634;
+    }
+
+    .hair-side {
+      width: 45px;
+      height: 40px;
+      top: 40px;
+    }
+
+    .hair-side.l {
+      left: -32px;
+      border-right: solid 1px #E7AE52;
+      border-radius: 0 90% 0% 90%;
+      transform: rotate(80deg);
+      box-shadow: inset -2px 3px 3px 0 #F4C634;
+    }
+
+    .hair-side.r {
+      right: -34px;
+      border-left: solid 1px #E7AE52;
+      border-radius: 90% 0 90% 0%;
+      transform: rotate(-80deg);
+      box-shadow: inset 2px 3px 3px 0 #F4C634;
+    }
+
+    .hair-fill {
+      background: #FFFA75;
+      z-index: 4;
+      width: 120px;
+      height: 40px;
+      bottom: 150px;
+      left: 50%;
+      margin-left: -60px;
+
+    }
+
+    .hair-top {
+      background: #FFEB63;
+      box-shadow: inset 0 20px 20px 0 #FED01D;
+      border: solid 1px #BBA055;
+      border-radius: 70% 70% 60% 60%;
+      width: 80px;
+      height: 50px;
+      top: 50px;
+      left: 50%;
+      margin-left: -40px;
+    }
+
+    .ribbon,
+    .ribbon::before {
+      border-radius: 80%;
+      width: 166px;
+      height: 100px;
+      left: 50%;
+      box-sizing: border-box;
+      margin-left: -83px;
+    }
+
+    .ribbon {
+      z-index: 4;
+      bottom: 100px;
+      border-top: solid 12px rgb(25, 146, 177);
+    }
+
+    .ribbon::before {
+      content: "";
+      position: absolute;
+      top: -13px;
+      border-top: solid 12px #95E8FD;
+    }
+
+    .ribbon1,
+    .ribbon2 {
+      z-index: 0;
+      width: 14px;
+      height: 20px;
+      border-radius: 100%;
+      background: #95E8FD;
+      border: solid 1px rgb(25, 146, 177);
+    }
+
+    .ribbon1 {
+      top: 58%;
+    }
+
+    .ribbon1.l {
+      left: 64px;
+    }
+
+    .ribbon1.r {
+      right: 64px;
+    }
+
+    .ribbon2 {
+      bottom: 68px;
+    }
+
+    .ribbon2.l {
+      left: 88px;
+    }
+
+    .ribbon2.r {
+      right: 88px;
+    }
+
+    .face {
+      width: 150px;
+      height: 130px;
+      box-shadow: inset 0 -8px 34px #FFD6B7;
+      border-radius: 65% 65% 58% 58%;
+      background: #FFF3DE;
+      border: solid 1px #8a884e;
+      bottom: 60px;
+      left: 50%;
+      margin-left: -75px;
+      z-index: 2;
+    }
+
+    .eye {
+      width: 8px;
+      height: 10px;
+      border-radius: 100%;
+      background: #2F86CB;
+      border: solid 2px #224D94;
+      box-shadow: inset 0 -3px 2px 0 #246CC8;
+      bottom: 30px;
+    }
+
+    .eye.l {
+      left: 40px;
+    }
+
+    .eye.r {
+      right: 40px;
+    }
+
+    .eyelash {
+      width: 0;
+      height: 0;
+      border-width: 0 2px 8px 2px;
+      top: -8px;
+      transform-origin: top right;
+    }
+
+    .eyelash,
+    .eyelash::before,
+    .eyelash::after {
+      border-style: solid;
+      border-color: transparent transparent #293038 transparent;
+    }
+
+    .eyelash::before,
+    .eyelash::after {
+      content: "";
+      top: 0;
+      border-width: 0 1px 8px 1px;
+      position: absolute;
+    }
+
+    .eyelash::before {
+      left: -4px;
+    }
+
+    .eyelash::after {
+      left: 2px;
+    }
+
+    .l .eyelash {
+      left: -3px;
+      transform: skew(-5deg) rotate(-25deg);
+    }
+
+    .r .eyelash {
+      left: 8px;
+      top: -7px;
+      transform: skew(-10deg) rotate(25deg);
+    }
+
+    .eyebrow {
+      border-top: solid 2px #B88E5E;
+      width: 16px;
+      height: 10;
+      top: -20px;
+      border-radius: 50%;
+    }
+
+    .l .eyebrow {
+      left: -7px;
+      transform: rotate(-15deg);
+    }
+
+    .r .eyebrow {
+      right: -7px;
+      transform: rotate(15deg);
+    }
+
+    .nose {
+      width: 10px;
+      height: 12px;
+      border-radius: 100%;
+      background: #FFF3DE;
+      box-shadow: 0 2px 4px 1px #FBD1B1, 0 0 4px 2px #FEE2C9;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      margin-left: -5px;
+    }
+
+    .blush {
+      width: 14px;
+      height: 12px;
+      border-radius: 100%;
+      background: #FFB08F;
+      bottom: 25px;
+      box-shadow: inset 0 0 2px 0 #FEAC8F;
+    }
+
+    .blush.l {
+      left: 25px;
+    }
+
+    .blush.r {
+      right: 25px;
+    }
+  </style>
+</header>
+
+<body>
+  <div class="wrap">
+    <div class="hair-top"></div>
+    <div class="hair"></div>
+    <div class="hair-fill"></div>
+    <div class="ribbon1 l"></div>
+    <div class="ribbon1 r"></div>
+    <div class="hair-mid">
+      <div class="hair-side l"></div>
+      <div class="hair-side r"></div>
+    </div>
+    <div class="ribbon"></div>
+    <div class="face">
+      <div class="eye l">
+        <div class="eyebrow"></div>
+        <div class="eyelash"></div>
+      </div>
+      <div class="eye r">
+        <div class="eyebrow"></div>
+        <div class="eyelash"></div>
+      </div>
+      <div class="nose"></div>
+      <div class="blush l"></div>
+      <div class="blush r"></div>
+    </div>
+    <div class="ribbon2 l"></div>
+    <div class="ribbon2 r"></div>
+  </div>
+</body>
+
+</html>
