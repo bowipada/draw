@@ -276,27 +276,52 @@
     /* Minion Bob */
 
     .glass {
-      width: 90px;
-      height: 90px;
+      width: 94px;
+      height: 94px;
       border-radius: 100%;
-      background: #B9BABE;
-      top: 60px;
+      background: #dadada;
+      top: 55px;
+      z-index: 3;
     }
 
     .glass.l {
-      z-index: 1;
-      left: 65px;
-      box-shadow: inset 1px 1px 0px 0px #efefef,
-      -1px 0 0 1px #aaa;
+      left: 62px;
+      box-shadow: inset 1px 1px 0px 0px #fff,
+      -1px 0 0 0 #999,
+      1px 1px 0 0 #bbb;
     }
 
     .glass.r {
-      right: 65px;
-      box-shadow: inset 1px 1px 0px 0px #efefef,
-      inset -1px 1px 0px 0px #efefef, 1px 0 0 1px #aaa;
+      z-index: 2;
+      right: 62px;
+      box-shadow: inset -1px 1px 0px 0px #fff,
+      1px 0 0 0 #999,
+      1px 1px 0 0 #bbb;
+      z-index: 4;
     }
 
-    .eye-w,
+    .glass-band {
+      width: 176px;
+      height: 25px;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #dadada;
+      border: solid 1px #999;
+      border-radius: 3px;
+    }
+
+    .glass-band-1 {
+      background: #485E76;
+      margin-left: 1px;
+      width: 181px;
+      height: 22px;
+      top: 88px;
+      border-radius: 5px;
+      left: 50%;
+      transform: translateX(-50%) skewX(2deg);
+    }
+
     .eye-b,
     .eye-g,
     .eye-g::before,
@@ -308,10 +333,24 @@
     }
 
     .eye-w {
-      width: 62px;
-      height: 62px;
+      top: 68px;
+      width: 68px;
+      height: 68px;
       background: #fff;
-      box-shadow: inset 5px 3px 0 2px #eee;
+      box-shadow: inset 1px 1px 1px 0 #aaa,
+      inset 1px -3px #CBCCCB,
+      inset 7px 3px 7px 1px #cfcfcf;
+      border: solid 1px #cfcfcf;
+      border-radius: 100%;
+      z-index: 5;
+    }
+
+    .eye-w.l {
+      left: 75px;
+    }
+
+    .eye-w.r {
+      right: 75px;
     }
 
     .eye-g,
@@ -332,7 +371,8 @@
     .eye-g::before,
     .eye-b::before,
     .eye-g::after,
-    .eye-b::after {
+    .eye-b::after,
+    .minion-head.t::after {
       content: "";
       position: absolute;
     }
@@ -359,51 +399,54 @@
 
     .mouth-t,
     .mouth {
-      transform: translateX(-50%) rotate(-2deg);
       left: 50%;
+      width: 65px;
     }
 
     .mouth-t {
-      width: 64px;
+      border-left: solid 2px #F9E079;
       height: 15px;
-      border-radius: 100%;
+      border-radius: 5px 5px 35% 5px;
       border-bottom: solid 2px #CF9E1F;
       background: #F9E079;
-      top: 148px;
+      top: 143px;
       z-index: 2;
+      transform: translateX(-50%) rotate(-2deg) skewY(-2deg);
     }
 
     .mouth {
       background: #913842;
-      width: 62px;
-      height: 30px;
+      height: 25px;
       border-radius: 0 0 60px 60px;
-      top: 155px;
+      top: 150px;
       z-index: 1;
       overflow: hidden;
+      transform: translateX(-50%) rotate(-2deg);
+      border-bottom: solid 1px #D69C1C;
     }
 
     .teeth {
       width: 20px;
       height: 9px;
       z-index: 2;
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 8px 5px;
       background: #fff;
+      border-left: solid 1px #eee;
     }
 
     .teeth.t1 {
-      top: 3px;
-      left: -15px;
+      top: 6px;
+      left: -11px;
     }
 
     .teeth.t2 {
-      top: 4px;
-      left: 5px;
+      top: 6px;
+      left: 7px;
     }
 
     .teeth.t3 {
       top: 5px;
-      left: 25px;
+      left: 26px;
     }
 
     .teeth.t4 {
@@ -413,50 +456,89 @@
 
     .t3,
     .t4 {
-      transform: rotate(-4deg);
+      transform: rotate(-6deg);
     }
 
-    .minion-body,
-    .minion-head {
+    .minion-head.t {
       width: 170px;
+      height: 150px;
+      box-shadow: inset 0 5px 10px 1px #F3D774;
+      border-radius: 50% 50% 0 0;
+      top: 35px;
       z-index: 0;
       background: #F9E079;
       left: 50%;
       transform: translateX(-50%);
     }
 
-    .minion-head {
-      height: 130px;
-      box-shadow: inset 0 15px 15px 1px #F3D774;
-      border-radius: 50% 50% 0 0;
-      top: 40px;
+    .minion-head.t::after {
+      top: 50px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+    }
+
+    .minion-head.l,
+    .minion-head.r {
+      top: 100px;
+      width: 100px;
+      height: 90px;
+      background: #F9E079;
+    }
+
+    .minion-head.l {
+      transform: skewX(-3deg);
+      left: 61px;
+    }
+
+    .minion-head.r {
+      transform: skewX(3deg);
+      right: 61px;
     }
 
     .minion-body {
-      height: 70px;
-      top: 150px;
+      width: 35px;
+      height: 40px;
+      top: 188px;
+      z-index: 3;
     }
 
+    .minion-body.l {
+      left: 55px;
+      transform: skew(5deg, 10deg);
+      border-radius: 100% 0 0 25px;
+      box-shadow: inset 3px -1px 2px 0 #3F3C37;
+    }
+
+    .minion-body.r {
+      right: 55px;
+      transform: skew(-5deg, -10deg);
+      border-radius: 0 100% 25px 0;
+      box-shadow: inset -3px -1px 2px 0 #3F3C37;
+    }
+
+    .minion-body,
     .arm {
       background: #F9E079;
     }
 
     .arm.u {
-      height: 50px;
+      height: 48px;
       width: 20px;
       top: 170px;
     }
 
     .arm.u.l {
       border-left: solid 1px #F3D774;
-      left: 53px;
-      transform: rotate(30deg);
+      left: 51px;
+      transform: rotate(25deg);
     }
 
     .arm.u.r {
       border-right: solid 1px #F3D774;
-      right: 53px;
-      transform: rotate(-30deg);
+      right: 51px;
+      transform: rotate(-25deg);
     }
 
     .arm.d {
@@ -467,15 +549,15 @@
     }
 
     .arm.d.l {
-      left: 43px;
-      transform: rotate(60deg);
+      left: 42px;
+      transform: rotate(55deg);
       border-radius: 0 0 80% 50%;
       box-shadow: inset -3px 0 3px 0 #D6AA41;
     }
 
     .arm.d.r {
-      right: 43px;
-      transform: rotate(-60deg);
+      right: 42px;
+      transform: rotate(-55deg);
       border-radius: 0 0 50% 80%;
       box-shadow: inset 3px 0 3px 0 #D6AA41;
     }
@@ -498,11 +580,11 @@
     }
 
     .hand.l {
-      left: 56px;
+      left: 51px;
     }
 
     .hand.r {
-      right: 56px;
+      right: 51px;
     }
 
     .hand-1 {
@@ -510,18 +592,18 @@
       width: 25px;
       height: 28px;
       z-index: 4;
-      top: 182px;
+      top: 178px;
       background: #777;
       box-shadow: inset -2px 0 10px 0 #000;
     }
 
     .hand-1.l {
-      left: 58px;
-      transform: rotate(10deg);
+      left: 54px;
+      transform: rotate(30deg);
     }
 
     .hand-1.r {
-      right: 58px;
+      right: 53px;
       transform: rotate(-10deg);
     }
 
@@ -530,16 +612,16 @@
       width: 20px;
       height: 25px;
       z-index: 4;
-      top: 192px;
+      top: 188px;
       background: #333;
     }
 
     .hand-2.l {
-      left: 62px;
+      left: 56px;
     }
 
     .hand-2.r {
-      right: 62px;
+      right: 56px;
     }
 
     .finger-1 {
@@ -547,48 +629,48 @@
     }
 
     .finger-1.l {
-      width: 22px;
-      height: 14px;
-      transform: rotate(40deg);
-      top: 194px;
-      left: 55px;
-      border-radius: 10px 50% 10px 50%;
+      width: 24px;
+      height: 15px;
+      transform: rotate(30deg);
+      top: 188px;
+      left: 52px;
+      border-radius: 8px 50% 10px 8px;
     }
 
     .finger-2.l {
       z-index: 5;
-      width: 22px;
+      width: 24px;
       height: 14px;
-      top: 182px;
-      left: 62px;
-      border-radius: 100% 10px 80% 10px;
-      transform: rotate(40deg);
+      top: 176px;
+      left: 58px;
+      border-radius: 100% 100% 10px 10px;
+      transform: rotate(30deg);
     }
 
     .finger-3.l {
       z-index: 4;
       width: 15px;
       height: 15px;
-      top: 192px;
-      left: 74px;
+      top: 190px;
+      left: 70px;
       border-radius: 100%;
     }
 
     .finger-1.r {
-      width: 22px;
+      width: 24px;
       height: 14px;
       transform: rotate(-40deg);
-      top: 194px;
-      right: 55px;
+      top: 188px;
+      right: 50px;
       border-radius: 10px 50% 10px 50%;
     }
 
     .finger-2.r {
       z-index: 5;
-      width: 22px;
+      width: 24px;
       height: 14px;
-      top: 182px;
-      right: 62px;
+      top: 176px;
+      right: 57px;
       border-radius: 100% 100% 100% 10px;
       transform: rotate(-40deg);
     }
@@ -597,75 +679,77 @@
       z-index: 4;
       width: 15px;
       height: 15px;
-      top: 192px;
-      right: 74px;
+      top: 190px;
+      right: 70px;
       border-radius: 100%;
     }
 
     .suit {
-      z-index: 3;
-      width: 120px;
-      height: 40px;
-      top: 192px;
-      border: solid 1px #5584AE;
-      border-bottom: none;
+      z-index: 4;
+      width: 124px;
+      height: 45px;
+      top: 187px;
+      border-top: solid 1px #5584AE;
       left: 50%;
       transform: translateX(-50%);
     }
 
     .suit-side {
-      border: solid 1px #5584AE;
-      background: #749EC4;
-      top: 25px;
-      width: 23px;
-      height: 18px;
-      position: absolute;
+      border-bottom: solid 1px #5584AE;
+      top: 16px;
+      width: 15px;
+      height: 40px;
     }
 
     .suit-side.l {
-      left: -25px;
-      transform: skewY(12deg);
-      border-radius: 0 0 60% 90%;
+      left: -15px;
+      border-radius: 0 0 50% 0;
+      border-right: solid 1px #5584AE;
     }
 
     .suit-side.r {
-      right: -25px;
-      transform: skewY(-12deg);
-      border-radius: 0 0 90% 60%;
+      right: -15px;
+      border-radius: 0 0 0 50%;
+      border-left: solid 1px #5584AE;
     }
 
     .suit .y-dash {
-      border-width: 1px 1px 0 1px;
+      border-width: 1px 0 0 0;
+    }
+
+    .suit-side .y-dash.u {
+      top: 28px;
+      left: 1px;
+      right: 1px;
     }
 
     .suit-side.l .y-dash.u {
-      left: 5px;
-      right: 0;
       border-width: 1px 0 0 1px;
+      transform: skew(5deg, 10deg);
+      ;
     }
 
     .suit-side.r .y-dash.u {
-      left: 0;
-      right: 5px;
       border-width: 1px 1px 0 0;
+      transform: skew(-5deg, -10deg);
     }
 
     .suit-side .y-dash.d {
-      top: 10px;
       bottom: -5px;
-      width: 23px;
     }
 
     .suit-side.l .y-dash.d {
-      border-radius: 0 0 90% 60%;
+      border-radius: 0 0 50% 0;
       border-width: 0 1px 1px 0;
+      right: -5px;
       left: 4px;
     }
 
     .suit-side.r .y-dash.d {
-      border-radius: 0 0 90% 60%;
+      border-radius: 0 0 0 50%;
       border-width: 0 0 1px 1px;
       left: -5px;
+      right: 4px;
     }
 
     .suit,
@@ -684,13 +768,13 @@
     }
 
     .suit-t.l {
-      transform: rotate(-45deg);
-      left: 73px;
+      transform: rotate(-50deg);
+      left: 69px;
     }
 
     .suit-t.r {
-      transform: rotate(45deg);
-      right: 73px;
+      transform: rotate(50deg);
+      right: 69px;
     }
 
     .suit-t::before,
@@ -700,21 +784,21 @@
     }
 
     .suit-t::after {
-      width: 12px;
+      width: 13px;
       top: -10px;
       background: #fff;
-      height: 20px;
+      height: 18px;
       z-index: 7;
     }
 
     .suit-t.l::after {
       left: -5px;
-      transform: rotate(45deg);
+      transform: rotate(50deg);
     }
 
     .suit-t.r::after {
       right: -5px;
-      transform: rotate(-45deg);
+      transform: rotate(-50deg);
     }
 
     .suit-t::before {
@@ -726,12 +810,12 @@
     }
 
     .suit-t.l::before {
-      transform: rotate(45deg);
+      transform: rotate(50deg);
       left: 4px;
     }
 
     .suit-t.r::before {
-      transform: rotate(-45deg);
+      transform: rotate(-50deg);
       right: 4px;
     }
 
@@ -740,10 +824,10 @@
     }
 
     .bag {
-      z-index: 3;
-      top: 205px;
+      z-index: 5;
+      top: 202px;
       width: 60px;
-      height: 34px;
+      height: 30px;
       background: transparent;
       border: solid 1px #5584AE;
       left: 50%;
@@ -814,13 +898,13 @@
     }
 
     .suit-b.l {
-      left: 65px;
+      left: 60px;
       border-radius: 0 0 0 100%;
       border-left: solid 1px #5584AE;
     }
 
     .suit-b.r {
-      right: 65px;
+      right: 60px;
       border-radius: 0 0 100% 0;
       border-right: solid 1px #5584AE;
     }
@@ -1005,16 +1089,18 @@
 
   <div class="wrap Bob">
     <p class="t_c">Minion Bob</p>
-    <div class="minion-head"></div>
-    <div class="glass l">
-      <div class="eye-w">
-        <div class="eye-g"></div>
-      </div>
+    <div class="minion-head t"></div>
+    <div class="minion-head l"></div>
+    <div class="minion-head r"></div>
+    <div class="glass-band-1"></div>
+    <div class="glass-band"></div>
+    <div class="glass l"></div>
+    <div class="eye-w l">
+      <div class="eye-g"></div>
     </div>
-    <div class="glass r">
-      <div class="eye-w">
-        <div class="eye-b"></div>
-      </div>
+    <div class="glass r"></div>
+    <div class="eye-w r">
+      <div class="eye-b"></div>
     </div>
     <div class="mouth-t"></div>
     <div class="mouth">
@@ -1023,7 +1109,8 @@
       <div class="teeth t3"></div>
       <div class="teeth t4"></div>
     </div>
-    <div class="minion-body"></div>
+    <div class="minion-body l"></div>
+    <div class="minion-body r"></div>
     <div class="suit">
       <div class="suit-side l">
         <div class="y-dash u"></div>
